@@ -10,7 +10,10 @@ def helper():
     print("Special commands: !help !done")
 
 
-def done():
+def done(doc: str):
+    output = open("output.md", "w", encoding="utf-8")
+    output.writelines(doc)
+    output.close()
     sys.exit()
 
 
@@ -108,7 +111,7 @@ while True:
         if inp == "help":
             helper()
         elif inp == "done":
-            done()
+            done(document)
         else:
             helper()
     elif inp not in commands:
